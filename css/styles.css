@@ -10,6 +10,8 @@ body {
   padding: 15px;
   background: lightcyan;
   color: black;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 header {
@@ -28,7 +30,6 @@ main {
 .pokemon-list {
   border: 1px dotted grey;
   display: inline-block;
-  margin: 0;
   padding: 20px;
   background-color: rgb(168, 204, 171);
 }
