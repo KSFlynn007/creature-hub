@@ -17,19 +17,36 @@ height: 1.08,
 types: ["grass", "poison"],
 weakness: []},
 
+{name: "Snorlax", 
+identificationNumber: 143,
+height: 6.11,
+types: ["normal"]},
+
+{name: "Swinub",
+identificationNumber: 220,
+height: 1.04,
+types: ["ice", "ground"]},
+
+
 {name: "Wingull",
 identificationNumber: 278, 
 height: 2,
 types: ["water", "flying"]},
 
-{name: "Swinub",
-identificationNumber: 220,
-height: 1.04,
-types: ["ice", "ground"]}
+{name: "Wailord",
+identificationNumber: 321,
+height: 47.07,
+types: ["water"]},
+
+{name: "Klefki",
+identificationNumber: 707,
+height: 0.08,
+types: ["steel", "fairy"]}
+
 
 ];
 
-//basic loop structure for list 
+//basic loop structure for listing pokemon:
 
 // for (let i = 0; i < pokemonList.length; i++) {
 //     document.write("<p>" + pokemonList[i].name + " - " + pokemonList[i].height + "</p>");
@@ -38,12 +55,14 @@ types: ["ice", "ground"]}
 //adds conditional to basic loop above
 
 for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height >= 2 && pokemonList[i].height <= 3) {
+    if (pokemonList[i].height >= 2 && pokemonList[i].height <= 4) {
         document.write("<p>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a regular sized pokemon. </p>");
     } else if (pokemonList[i].height < 2) {
         document.write("<p>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a tiny pokemon! </p>");
+    } else if (pokemonList[i].height > 4 && pokemonList[i].height < 30) {
+        document.write("<p>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a big pokemon! </p>");
     } else {
-        document.write("<p>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's pretty big pokemon! </p>");
+        document.write("<p>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a giant pokemon! </p>");
 
     }
 }
