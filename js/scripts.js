@@ -1,3 +1,4 @@
+let pokemonRepository = (function () {
 let pokemonList = [
 {name: "Vulpix",
 identificationNumber: 037,
@@ -27,7 +28,6 @@ identificationNumber: 220,
 height: 1.04,
 types: ["ice", "ground"]},
 
-
 {name: "Wingull",
 identificationNumber: 278, 
 height: 2,
@@ -43,26 +43,36 @@ identificationNumber: 707,
 height: 0.08,
 types: ["steel", "fairy"]}
 
-
 ];
 
-//basic loop structure for listing pokemon:
+function add(pokemon) {
+    pokemonList.push(pokemon);
+}
 
-// for (let i = 0; i < pokemonList.length; i++) {
-//     document.write("<p>" + pokemonList[i].name + " - " + pokemonList[i].height + "</p>");
-// }
+function getAll() {
+    return pokemonList;
+}
 
-//adds conditional to basic loop above
+return {
+    add: add,
+    getAll: getAll
+};
 
-for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height >= 2 && pokemonList[i].height <= 4) {
-        document.write("<li>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a regular sized pokemon. </li>");
-    } else if (pokemonList[i].height < 2) {
-        document.write("<li>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a tiny pokemon! </li>");
-    } else if (pokemonList[i].height > 4 && pokemonList[i].height < 30) {
-        document.write("<li>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a big pokemon! </li>");
+}) ();
+
+document.write( pokemonRepository.getAll () );
+
+//forEach Loop:
+
+pokemonList.forEach(function(pokemon) {
+    if (pokemon.height >= 2 && pokemon.height <= 4) {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a regular sized pokemon. </li>");
+    } else if (pokemon.height < 2) {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a tiny sized pokemon! </li>");
+    } else if (pokemon.height > 4 && pokemon.height < 30) {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a pretty big pokemon. </li>");
     } else {
-        document.write("<li>" + pokemonList[i].name + ", (height: " + pokemonList[i].height + " feet)" +  " - That's a giant pokemon! </li>");
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a giant pokemon! </li>");
 
     }
-}
+})
