@@ -47,8 +47,11 @@ let pokemonRepository = (function () {
     }
 
     function add(pokemon) {
+        if (typeof pokemon === 'object') {
         pokemonList.push(pokemon);
-    }
+    } else {
+        console.log("New pokemon entry not correct data type.");
+    }}
 
     return {
         getAll: getAll,
@@ -57,25 +60,18 @@ let pokemonRepository = (function () {
 }) 
 ();
 
-document.write(pokemonRepository.getAll());
-document.write(pokemonRepository.add("<p>Evee</p>"))
-document.write(pokemonRepository.getAll());
+// forEach Loop:
 
+pokemonRepository.getAll().forEach(function(pokemon) {
+    if (pokemon.height >= 2 && pokemon.height <= 4) {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a regular sized pokemon. </li>");
+    } else if (pokemon.height < 2) {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a tiny sized pokemon! </li>");
+    } else if (pokemon.height > 4 && pokemon.height < 30) {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a pretty big pokemon. </li>");
+    } else {
+        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a giant pokemon! </li>");
 
+    }
+})
 
-
-
-//forEach Loop:
-
-// pokemonList.forEach(function(pokemon) {
-//     if (pokemon.height >= 2 && pokemon.height <= 4) {
-//         document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a regular sized pokemon. </li>");
-//     } else if (pokemon.height < 2) {
-//         document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a tiny sized pokemon! </li>");
-//     } else if (pokemon.height > 4 && pokemon.height < 30) {
-//         document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a pretty big pokemon. </li>");
-//     } else {
-//         document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a giant pokemon! </li>");
-
-//     }
-// })
