@@ -53,25 +53,27 @@ let pokemonRepository = (function () {
         console.log("New pokemon entry not correct data type.");
     }}
 
+    function addListItem(pokemon){
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listItem = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
+    }
+
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     };
 }) 
 ();
 
-// forEach Loop:
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-    if (pokemon.height >= 2 && pokemon.height <= 4) {
-        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a regular sized pokemon. </li>");
-    } else if (pokemon.height < 2) {
-        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a tiny sized pokemon! </li>");
-    } else if (pokemon.height > 4 && pokemon.height < 30) {
-        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a pretty big pokemon. </li>");
-    } else {
-        document.write("<li>" + pokemon.name + ", (height: " + pokemon.height + " feet)" +  " - That's a giant pokemon! </li>");
-
-    }
-})
+    pokemonRepository.addListItem(pokemon);
+});
 
