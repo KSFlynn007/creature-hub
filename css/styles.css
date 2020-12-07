@@ -8,10 +8,11 @@ body {
   font-size: 22px;
   line-height: 1.5;
   padding: 15px;
-  background: lightcyan;
   color: black;
   max-width: 1000px;
   margin: 0 auto;
+  background-image: url(file:///C:/Users/kelse/Desktop/creature-hub/img/Square%20Background%20Pattern.svg);
+  background-position: center center;
 }
 
 header {
@@ -56,4 +57,9 @@ li {
   background-color: rgb(165, 155, 216);
   height: 70px;
   width: 170px;
+}
+
+.sourcing {
+  opacity: 30%;
+  font-size: 12px;
 }
