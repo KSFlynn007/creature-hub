@@ -59,6 +59,11 @@ li {
   width: 170px;
 }
 
+.button-class:active {
+  background-color: rgb(77, 49, 218);
+  color: white;
+}
+
 .sourcing {
   opacity: 30%;
   font-size: 12px;
