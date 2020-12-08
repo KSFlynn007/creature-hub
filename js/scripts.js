@@ -65,15 +65,15 @@ let pokemonRepository = (function () {
 
         //eventListener for clicking each pokemon box on DOM
         button.addEventListener('click', function (event) {
-            console.log(showDetails(pokemon));
-        });
-       
+            console.log(pokemon);
+        });  
     }
     
-    ///shows pokemon details in log console on page load
+    ///shows pokemon details in log console
     function showDetails(pokemon){    
-        console.log(pokemon);
+        console.log();
     };
+
 
     // function buttonListener (button, pokemon) {     
     //     passed variables need to go here
