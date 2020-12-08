@@ -62,13 +62,15 @@ let pokemonRepository = (function () {
 
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
+
+        ///eventListener for clicking each pokemon box on DOM
+        button.addEventListener('click', function (event) {
+            console.log(showDetails(pokemon));
+        });
     }
     
-    function showDetails(pokemon){        
-        let nameButton = document.querySelector('button');
-        nameButton.addEventListener('click', function (event) {
-            console.log(pokemon);
-        });
+    function showDetails(pokemon){    
+        console.log(pokemon);
     };
 
     return {
