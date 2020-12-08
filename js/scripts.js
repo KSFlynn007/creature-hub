@@ -63,17 +63,28 @@ let pokemonRepository = (function () {
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
     }
+    
+    function showDetails(pokemon){        
+        let nameButton = document.querySelector('button');
+        nameButton.addEventListener('click', function (event) {
+            console.log(pokemon);
+        });
+    };
 
     return {
         getAll: getAll,
         add: add,
-        addListItem: addListItem
+        addListItem: addListItem,
+        showDetails: showDetails
     };
 }) 
 ();
 
-
+///function below accesses the array list from the empty function
 pokemonRepository.getAll().forEach(function(pokemon) {
+    ///function below creates button for each object in pokemon-list array
     pokemonRepository.addListItem(pokemon);
+    /// function below allows to access ShowDetails function, which logs pokemon-list object in console.log when clicked
+    pokemonRepository.showDetails(pokemon);
 });
 
