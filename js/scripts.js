@@ -74,21 +74,19 @@ let pokemonRepository = (function () {
         console.log();
     };
 
-
-    // function buttonListener (button, pokemon) {     
-    //     passed variables need to go here
-        
-    //     button.addEventListener('click', function (event){
-    //         console.log(showDetails(button, pokemon));
-    //     })
-    // };
+    function buttonListener(button, pokemon) {     
+//what is supposed to go in here??
+        button.addEventListener('click', function (event){
+            console.log(button, pokemon);
+        })
+    };
 
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
         showDetails: showDetails,
-        // buttonListener: buttonListener
+        buttonListener: buttonListener
     };
 }) 
 ();
