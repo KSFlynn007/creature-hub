@@ -63,21 +63,32 @@ let pokemonRepository = (function () {
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
 
-        ///eventListener for clicking each pokemon box on DOM
+        //eventListener for clicking each pokemon box on DOM
         button.addEventListener('click', function (event) {
             console.log(showDetails(pokemon));
         });
+       
     }
     
+    ///shows pokemon details in log console on page load
     function showDetails(pokemon){    
         console.log(pokemon);
     };
+
+    // function buttonListener (button, pokemon) {     
+    //     passed variables need to go here
+        
+    //     button.addEventListener('click', function (event){
+    //         console.log(showDetails(button, pokemon));
+    //     })
+    // };
 
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
-        showDetails: showDetails
+        showDetails: showDetails,
+        // buttonListener: buttonListener
     };
 }) 
 ();
@@ -88,5 +99,9 @@ pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
     /// function below allows to access ShowDetails function, which logs pokemon-list object in console.log when clicked
     pokemonRepository.showDetails(pokemon);
+
+
+    ///function below would allow access to buttonListener function, which is where the event listener code is held
+    // pokemonRepository.buttonListener(pokemon);
 });
 
