@@ -1,3 +1,15 @@
+fetch('https://pokeapi.co/api/v2/pokemon/', {
+    method: 'GET'
+}).then(function (response){
+    return response.json();
+}).then(function(pokemonList){
+    console.log(pokemonList);
+}).catch(function(){
+    console.log('There is an error in retrieving the API');
+});
+
+
+
 let pokemonRepository = (function () {
     let pokemonList = [
         {name: 'Vulpix',
