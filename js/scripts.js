@@ -73,14 +73,14 @@ let pokemonRepository = (function () {
     ///shows pokemon details in log console
     function showDetails(pokemon){    
         console.log();
-    };
+    }
 
     //event listener method 
     function buttonListener(button, pokemon) {     
         button.addEventListener('click', function (event){
             console.log(button, pokemon);
         })
-    };
+    }
 
     return {
         getAll: getAll,
@@ -92,7 +92,7 @@ let pokemonRepository = (function () {
 }) 
 ();
 
-///function below accesses the array list from the empty function
+///function below accesses the array list from the empty function, a .getAll function expects a callback function
 pokemonRepository.getAll().forEach(function(pokemon) {
     ///function below creates button for each object in pokemon-list array
     pokemonRepository.addListItem(pokemon);
