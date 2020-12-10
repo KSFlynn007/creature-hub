@@ -1,44 +1,44 @@
 let pokemonRepository = (function () {
     let pokemonList = [
-        {name: "Vulpix",
+        {name: 'Vulpix',
         identificationNumber: 037,
         height: 2,
-        types: "fire"},
+        types: 'fire'},
 
-        {name: "Wigglytuff",
+        {name: 'Wigglytuff',
         identificationNumber: 040,
         height: 3.03,
-        types: ["normal", "fairy"]},
+        types: ['normal', 'fairy']},
 
-        {name: "Oddish",
+        {name: 'Oddish',
         identificationNumber: 043,
         height: 1.08,
-        types: ["grass", "poison"]},
+        types: ['grass', 'poison']},
 
-        {name: "Snorlax", 
+        {name: 'Snorlax', 
         identificationNumber: 143,
         height: 6.11,
-        types: ["normal"]},
+        types: ['normal']},
 
-        {name: "Swinub",
+        {name: 'Swinub',
         identificationNumber: 220,
         height: 1.04,
-        types: ["ice", "ground"]},
+        types: ['ice', 'ground']},
 
-        {name: "Wingull",
+        {name: 'Wingull',
         identificationNumber: 278, 
         height: 2,
-        types: ["water", "flying"]},
+        types: ['water', 'flying']},
 
-        {name: "Wailord",
+        {name: 'Wailord',
         identificationNumber: 321,
         height: 47.07,
-        types: ["water"]},
+        types: ['water']},
 
-        {name: "Klefki",
+        {name: 'Klefki',
         identificationNumber: 707,
         height: 0.08,
-        types: ["steel", "fairy"]}
+        types: ['steel', 'fairy']}
 
         ];
 
@@ -50,15 +50,15 @@ let pokemonRepository = (function () {
         if (typeof pokemon === 'object') {
         pokemonList.push(pokemon);
     } else {
-        console.log("New pokemon entry not correct data type.");
+        console.log('New pokemon entry not the correct data type.');
     }}
 
     function addListItem(pokemon){
-        let pokemonList = document.querySelector(".pokemon-list");
-        let listItem = document.createElement("li");
-        let button = document.createElement("button");
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add("button-class");
+        button.classList.add('button-class');
 
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
