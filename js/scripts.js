@@ -31,7 +31,7 @@ let pokemonRepository = (function () {
     //event listener method 
     function buttonListener(button, pokemon) {     
         button.addEventListener('click', function (event){
-            console.log(button, pokemon);
+            console.log(pokemon);
         })
     };
 
