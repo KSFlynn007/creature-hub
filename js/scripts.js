@@ -31,8 +31,8 @@ let pokemonRepository = (function () {
     //event listener method 
     function buttonListener(button, pokemon) {     
         button.addEventListener('click', function (event){
-            console.log(pokemon);
-        })
+            showDetails(pokemon);
+                })
     };
 
     function loadList(){
@@ -43,11 +43,6 @@ let pokemonRepository = (function () {
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url,
-                    imgUrl: item.imgUrl,
-                    identificationNumber : item.identificationNumber,
-                    height : item.height,
-                    types: item.types,
-                    // types: item-types
                 };
                 add(pokemon);
                 console.log(pokemon);
@@ -74,12 +69,9 @@ let pokemonRepository = (function () {
 
         ///shows pokemon details in log console
     function showDetails(pokemon){  
-        loadDetails(pokemon).then(function(){
+        pokemonRepository.loadDetails(pokemon).then(function(){
             console.log(pokemon);
         });  
-        function loadDetails(pokemon){
-            console.log(pokemon);
-        }
     };
 
     return {
