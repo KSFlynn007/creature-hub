@@ -3,9 +3,7 @@ let pokemonRepository = (function () {
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
     function add(pokemon) {
-        if (typeof pokemon === 'object' &&
-        'name' in pokemon 
-        ) {
+        if (typeof pokemon === 'object') {
         pokemonList.push(pokemon);
     } else {
         console.log('New pokemon entry not correct.');
@@ -25,8 +23,9 @@ let pokemonRepository = (function () {
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
 
+
         //eventListener for clicking each pokemon box on DOM
-        buttonListener(button,pokemon);
+        buttonListener(button, pokemon);
     };
 
     //event listener method 
@@ -43,9 +42,15 @@ let pokemonRepository = (function () {
             json.results.forEach(function(item){
                 let pokemon = {
                     name: item.name,
-                    detailsUrl: item.url
+                    detailsUrl: item.url,
+                    imgUrl: item.imgUrl,
+                    identificationNumber : item.identificationNumber,
+                    height : item.height,
+                    types: item.types,
+                    // types: item-types
                 };
                 add(pokemon);
+                console.log(pokemon);
             });
         }).catch(function(e){
             console.log(e);
@@ -58,7 +63,7 @@ let pokemonRepository = (function () {
             return response.json();
         }).then(function(details){
             //Add details you want displayed to the item
-            item.imageURL = details.sprites.front_default;
+            item.imgUrl= details.sprites.front_default;
             item.identificationNumber = details.id;
             item.height = details.height;
             item.types = details.types;
@@ -72,6 +77,9 @@ let pokemonRepository = (function () {
         loadDetails(pokemon).then(function(){
             console.log(pokemon);
         });  
+        function loadDetails(pokemon){
+            console.log(pokemon);
+        }
     };
 
     return {
