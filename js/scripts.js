@@ -1,6 +1,7 @@
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    let modalContainer = document.querySelector('#modal-container');
 
     function add(pokemon) {
         if (typeof pokemon === 'object') {
@@ -67,23 +68,69 @@ let pokemonRepository = (function () {
         });
     };
 
-        ///shows pokemon details in log console
+    function showModal(title, text) {
+        modalContainer.innerHTML = '';
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        // for 'exit' button in modal 
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Exit';
+        closeButtonElement.addEventListener('click', hideModal);
+
+        //for content inside modal
+        let titleName = document.createElement('h1');
+        titleName.innerText = title;
+
+        let stats = document.createElement('p');
+        stats.innerText = text;
+        
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleName);
+        modal.appendChild(stats);
+        modalContainer.appendChild(modal);
+
+        modalContainer.classList.add('is-visible');
+  }
+
+    function hideModal() {
+        modalContainer.classList.remove('is-visible');
+  }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();  
+        }
+  });
+  
+    modalContainer.addEventListener('click', (e) => {
+        let target = e.target;
+        if(target === modalContainer) {
+        hideModal();
+        }
+    });
+
+    ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            console.log(pokemon);
+            showModal(pokemon);
         });  
     };
-
+    
     return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails
+        showDetails: showDetails,
+        showModal: showModal
     };
+
 }) 
 ();
+
 
 pokemonRepository.loadList().then(function(){
 ///function below accesses the array list from the empty function, a .getAll function expects a callback function
@@ -93,3 +140,8 @@ pokemonRepository.loadList().then(function(){
         /// function below allows to access ShowDetails function, which logs pokemon-list object in console.log when clicked
 })
 });
+
+
+    document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal('Modal title babyyy', 'This is the modal content!');
+    });
