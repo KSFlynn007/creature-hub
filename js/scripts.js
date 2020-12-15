@@ -111,6 +111,11 @@ let pokemonRepository = (function () {
         }
     });
 
+    document.querySelector('#modal-container').addEventListener('click', () => {
+        showModal('Title test', 'This is the modal content!');
+        });
+
+
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
@@ -124,13 +129,13 @@ let pokemonRepository = (function () {
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails,
-        showModal: showModal
+        showModal: showModal,
+        hideModal: hideModal,
+        showDetails: showDetails
     };
 
 }) 
 ();
-
 
 pokemonRepository.loadList().then(function(){
 ///function below accesses the array list from the empty function, a .getAll function expects a callback function
@@ -141,7 +146,3 @@ pokemonRepository.loadList().then(function(){
 })
 });
 
-
-    document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title babyyy', 'This is the modal content!');
-    });
