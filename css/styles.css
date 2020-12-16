@@ -133,6 +133,11 @@ li {
   margin-bottom: 0;
 }
 
+.modal img {
+  width: 150px;
+  height: 150px;
+}
+
 .sourcing {
   opacity: 30%;
   font-size: 12px;
