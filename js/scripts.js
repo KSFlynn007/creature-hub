@@ -90,13 +90,19 @@ let pokemonRepository = (function () {
         modalHeight.innerText = `Height: ${height}"`;
 
         let modalTypes = document.createElement('p');
-        modalTypes.innerText = `Types: ${[types]}`;
-        
+        modalTypes.innerText = `Types: ${types}`;
+
+        let modalImg = document.createElement('img');
+        //below SRC needs to be changed to link internally to item.imgURL in above function, but no idea how...
+        modalImg.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+
+
         modal.appendChild(closeButtonElement);
         modal.appendChild(modalName);
         modal.appendChild(modalIdNumber);
         modal.appendChild(modalHeight);
         modal.appendChild(modalTypes);
+        modal.appendChild(modalImg);
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add('is-visible');
