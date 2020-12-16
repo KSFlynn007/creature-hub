@@ -60,15 +60,16 @@ let pokemonRepository = (function () {
         }).then(function(details){
             //Add details you want displayed to the item
             item.imgUrl= details.sprites.front_default;
+            item.imgUrlBack = details.sprites.back_default;
             item.identificationNumber = details.id;
             item.height = details.height;
-            item.types = Object.keys(details.types);
+            item.types = details.types.map(type => type.type.name).join(", ");
         }).catch(function (e){
             console.log(e);
         });
     };
 
-    function showModal(title, identificationNumber, height, types, img) {
+    function showModal(title, identificationNumber, height, types, img, imgBack) {
         modalContainer.innerHTML = '';
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -93,8 +94,10 @@ let pokemonRepository = (function () {
         modalTypes.innerText = `Types: ${types}`;
 
         let modalImg = document.createElement('img');
-        //below SRC needs to be changed to link internally to item.imgURL in above function, but no idea how...
         modalImg.src = `${img}`
+
+        let modalImgBack = document.createElement('img');
+        modalImgBack.src = `${imgBack}`
 
 
         modal.appendChild(closeButtonElement);
@@ -103,6 +106,7 @@ let pokemonRepository = (function () {
         modal.appendChild(modalHeight);
         modal.appendChild(modalTypes);
         modal.appendChild(modalImg);
+        modal.appendChild(modalImgBack);
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add('is-visible');
@@ -135,7 +139,8 @@ let pokemonRepository = (function () {
                 pokemon.identificationNumber, 
                 pokemon.height, 
                 pokemon.types, 
-                pokemon.imgUrl
+                pokemon.imgUrl,
+                pokemon.imgUrlBack
             );
         });  
     };
