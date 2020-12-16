@@ -31,9 +31,9 @@ let pokemonRepository = (function () {
 
     //event listener method 
     function buttonListener(button, pokemon) {     
-        button.addEventListener('click', function (event){
-            showDetails(pokemon);
-                })
+        button.addEventListener('click', function (){
+            showDetails(pokemon)
+        })
     };
 
     function loadList(){
@@ -68,7 +68,7 @@ let pokemonRepository = (function () {
         });
     };
 
-    function showModal(title, text) {
+    function showModal(title, identificationNumber, height, types) {
         modalContainer.innerHTML = '';
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -80,15 +80,23 @@ let pokemonRepository = (function () {
         closeButtonElement.addEventListener('click', hideModal);
 
         //for content inside modal
-        let titleName = document.createElement('h1');
-        titleName.innerText = title;
+        let modalName = document.createElement('h1');
+        modalName.innerText = `Name: ${title}`;
 
-        let stats = document.createElement('p');
-        stats.innerText = text;
+        let modalIdNumber = document.createElement('p');
+        modalIdNumber.innerText = `Identification Number: ${identificationNumber}`;
+
+        let modalHeight = document.createElement('p');
+        modalHeight.innerText = `Height: ${height}"`;
+
+        let modalTypes = document.createElement('p');
+        modalTypes.innerText = `Types: ${[types]}`;
         
         modal.appendChild(closeButtonElement);
-        modal.appendChild(titleName);
-        modal.appendChild(stats);
+        modal.appendChild(modalName);
+        modal.appendChild(modalIdNumber);
+        modal.appendChild(modalHeight);
+        modal.appendChild(modalTypes);
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add('is-visible');
@@ -98,12 +106,14 @@ let pokemonRepository = (function () {
         modalContainer.classList.remove('is-visible');
   }
 
+  //to close modal via Esc key
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
         hideModal();  
         }
   });
   
+  //to close modal via clicking out
     modalContainer.addEventListener('click', (e) => {
         let target = e.target;
         if(target === modalContainer) {
@@ -111,15 +121,10 @@ let pokemonRepository = (function () {
         }
     });
 
-    document.querySelector('#modal-container').addEventListener('click', () => {
-        showModal('Title test', 'This is the modal content!');
-        });
-
-
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            showModal(pokemon);
+            showModal(pokemon.name, pokemon.identificationNumber, pokemon.height, pokemon.types);
         });  
     };
     
