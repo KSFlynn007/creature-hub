@@ -62,13 +62,13 @@ let pokemonRepository = (function () {
             item.imgUrl= details.sprites.front_default;
             item.identificationNumber = details.id;
             item.height = details.height;
-            item.types = details.types;
+            item.types = Object.keys(details.types);
         }).catch(function (e){
             console.log(e);
         });
     };
 
-    function showModal(title, identificationNumber, height, types) {
+    function showModal(title, identificationNumber, height, types, img) {
         modalContainer.innerHTML = '';
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -130,7 +130,7 @@ let pokemonRepository = (function () {
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            showModal(pokemon.name, pokemon.identificationNumber, pokemon.height, pokemon.types);
+            showModal(pokemon.name, pokemon.identificationNumber, pokemon.height, pokemon.types, );
         });  
     };
     
