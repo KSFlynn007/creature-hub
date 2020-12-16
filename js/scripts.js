@@ -94,7 +94,7 @@ let pokemonRepository = (function () {
 
         let modalImg = document.createElement('img');
         //below SRC needs to be changed to link internally to item.imgURL in above function, but no idea how...
-        modalImg.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+        modalImg.src = `${img}`
 
 
         modal.appendChild(closeButtonElement);
@@ -130,7 +130,13 @@ let pokemonRepository = (function () {
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            showModal(pokemon.name, pokemon.identificationNumber, pokemon.height, pokemon.types, );
+            showModal(
+                pokemon.name, 
+                pokemon.identificationNumber, 
+                pokemon.height, 
+                pokemon.types, 
+                pokemon.imgUrl
+            );
         });  
     };
     
