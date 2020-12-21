@@ -63,6 +63,7 @@ let pokemonRepository = (function () {
             item.imgUrlBack = details.sprites.back_default;
             item.identificationNumber = details.id;
             item.height = details.height;
+            //this changes the array into a string to add to the DOM
             item.types = details.types.map(type => type.type.name).join(", ");
         }).catch(function (e){
             console.log(e);
