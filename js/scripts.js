@@ -20,7 +20,6 @@ let pokemonRepository = (function () {
         listItem.classList.add('group-list-item');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        // DELETE LATER button.classList.add('button-class');
         button.classList.add('btn')
         button.classList.add('btn-secondary')
 
@@ -81,7 +80,7 @@ let pokemonRepository = (function () {
         // for 'exit' button in modal 
         let closeButtonElement = document.createElement('button');
         closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText = 'Exit';
+        closeButtonElement.innerText = 'X';
         closeButtonElement.addEventListener('click', hideModal);
 
         //for content inside modal
