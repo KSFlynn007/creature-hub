@@ -49,32 +49,21 @@ li {
 /* these are the individual pokemon buttons, including content within */
 .btn {
   border: 2px solid black;
-  padding: 10px;
-  margin: auto;
   height: 50px;
   width: 150px;
-  font-family: monospace;
-  font-weight: 400;
   font-size: 18px;
-  line-height: 1.5;
-  text-decoration: none;
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
 
 .btn:hover {
   border-color: white;
-  margin: auto;
   background-color: rgb(89, 63, 218);
   color: white;
-  height: 70px;
-  width: 170px;
+  height: 60px;
+  width: 160px;
 }
 
-.btn:active {
-  background-color: rgba(247, 37, 37, 0.8);
-  color: black;
-}
 /* POKEMON LIST STYLING END */
 
 /* MODAL CONTAINER/WINDOW START */
@@ -148,7 +137,7 @@ a {
 }
 
 @media all and (min-width: 200px) and (max-width: 275px) {
-  .button-class:hover {
+  .btn:hover {
     height: 50px;
     width: 100px;
   }
@@ -164,7 +153,7 @@ a {
   .content-container {
     margin: 0px 50px;
   }
-  .button-class {
+  .btn {
     width: 120px;
   }
 }
