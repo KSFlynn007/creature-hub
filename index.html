@@ -4,12 +4,35 @@
     <title>Creature Hub App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/pokeball.svg" type="image/icon-type">
+    <link rel="icon" href="img/pokeball.svg" alt="Pokéball" type="image/icon-type">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <!-- Navigation bar -->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="img/pokeball.svg" alt="Pokéball" width="30" height="30" class="d-inline-block align-top">
+            Home
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.pokemon.com/us/pokedex/" target="_blank">Pokédex<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/KSFlynn007/creature-hub" target="_blank">Github Code</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
     <header class="container">
         <div class="row">
             <h1 class="col display-3">
@@ -38,8 +61,6 @@
                 </div>
             </div>
     </div> -->
-
-
 
     <div id="modal-container"></div>
     <div id="image-container"></div>
