@@ -47,13 +47,12 @@ li {
 }
 
 /* these are the individual pokemon buttons, including content within */
-.button-class {
+.btn {
   border: 2px solid black;
   padding: 10px;
   margin: auto;
   height: 50px;
   width: 150px;
-  background-color: rgb(156, 143, 220);
   font-family: monospace;
   font-weight: 400;
   font-size: 18px;
@@ -63,7 +62,7 @@ li {
   transition: all 0.3s ease;
 }
 
-.button-class:hover {
+.btn:hover {
   border-color: white;
   margin: auto;
   background-color: rgb(89, 63, 218);
@@ -72,7 +71,7 @@ li {
   width: 170px;
 }
 
-.button-class:active {
+.btn:active {
   background-color: rgba(247, 37, 37, 0.8);
   color: black;
 }
