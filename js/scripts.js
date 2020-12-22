@@ -82,15 +82,15 @@ let pokemonRepository = (function () {
 
         // content inside modal window
         let modalName = $("<h1>" + item.name + "</h1>");
-        let modalIdNumber = $("<p>" + item.identificationNumber + "</p>");
-        let modalHeight = $("<p>" + item.height + "</p>");
-        let modalTypes = $("<p>" + item.types + "</p>");
+        let modalIdNumber = $("<p>Identification Number: " + item.identificationNumber + "</p>");
+        let modalHeight = $("<p>Height: " + item.height + "'</p>");
+        let modalTypes = $("<p>Types: " + item.types + "</p>");
 
         //modal images
-        let modalImg = $('<img class="modal-img" style="width:50%">');
+        let modalImg = $('<img class="modal-img">');
         modalImg.attr("src", item.imgUrl);
 
-        let modalImgBack = $('<img class="modal-img" style="width:50%">');
+        let modalImgBack = $('<img class="modal-img">');
         modalImgBack.attr("src", item.imgUrlBack);
 
         modalTitle.append(modalName);
@@ -104,8 +104,7 @@ let pokemonRepository = (function () {
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            showModal(item);
-            console.log(pokemon);
+            showModal(pokemon);
         });  
     };
     
@@ -118,7 +117,7 @@ let pokemonRepository = (function () {
         showModal: showModal,
         showDetails: showDetails
     };
-
+    
 }) 
 ();
 
