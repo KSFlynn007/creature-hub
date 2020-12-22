@@ -1,7 +1,6 @@
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    let modalContainer = document.querySelector('#modal-container');
 
     function add(pokemon) {
         if (typeof pokemon === 'object') {
@@ -22,6 +21,8 @@ let pokemonRepository = (function () {
         button.innerText = pokemon.name;
         button.classList.add('btn')
         button.classList.add('btn-secondary')
+        $(".btn").attr("data-toggle","modal");
+        $(".btn").attr("data-target", "#pokemonModalCenter");
 
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
@@ -72,10 +73,9 @@ let pokemonRepository = (function () {
         });
     };
 
-    function showModal(title, identificationNumber, height, types, img, imgBack) {
-   let modalBody = $(".modal-body");
+    function showModal(item) {
+        let modalBody = $(".modal-body");
         let modalTitle = $(".modal-title");
-        let modalHeader = $(".modal-header");
 
         modalTitle.empty();
         modalBody.empty();
@@ -93,26 +93,18 @@ let pokemonRepository = (function () {
         let modalImgBack = $('<img class="modal-img" style="width:50%">');
         modalImgBack.attr("src", item.imgUrlBack);
 
-        modalTitle.appendChild(modalName);
-        modalBody.appendChild(modalIdNumber);
-        modalBody.appendChild(modalHeight);
-        modalBody.appendChild(modalTypes);
-        modalBody.appendChild(modalImg);
-        modalBody.appendChild(modalImgBack);
-
+        modalTitle.append(modalName);
+        modalBody.append(modalIdNumber);
+        modalBody.append(modalHeight);
+        modalBody.append(modalTypes);
+        modalBody.append(modalImg);
+        modalBody.append(modalImgBack);
   }
 
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            // showModal(
-            //     pokemon.name, 
-            //     pokemon.identificationNumber, 
-            //     pokemon.height, 
-            //     pokemon.types, 
-            //     pokemon.imgUrl,
-            //     pokemon.imgUrlBack
-            // );
+            showModal(item);
             console.log(pokemon);
         });  
     };
