@@ -120,32 +120,19 @@ let pokemonRepository = (function () {
         modalContainer.classList.remove('is-visible');
   }
 
-  //to close modal via Esc key
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();  
-        }
-  });
-  
-  //to close modal via clicking out
-    modalContainer.addEventListener('click', (e) => {
-        let target = e.target;
-        if(target === modalContainer) {
-        hideModal();
-        }
-    });
 
     ///shows pokemon details in log console
     function showDetails(pokemon){  
         pokemonRepository.loadDetails(pokemon).then(function(){
-            showModal(
-                pokemon.name, 
-                pokemon.identificationNumber, 
-                pokemon.height, 
-                pokemon.types, 
-                pokemon.imgUrl,
-                pokemon.imgUrlBack
-            );
+            // showModal(
+            //     pokemon.name, 
+            //     pokemon.identificationNumber, 
+            //     pokemon.height, 
+            //     pokemon.types, 
+            //     pokemon.imgUrl,
+            //     pokemon.imgUrlBack
+            // );
+            console.log(pokemon);
         });  
     };
     
