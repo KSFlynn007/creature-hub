@@ -1,0 +1,114 @@
+body {
+  font-family: monospace;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 15px;
+  color: #000;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-image: url(https://cutewallpaper.org/21/grid-lines-background/Presentation-Backgrounds-Grid-Set-4.gif);
+  background-repeat: repeat;
+}
+header {
+  text-align: center;
+  border-bottom: 1px solid grey;
+  margin: 100px 0 30px 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+main {
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+nav {
+  background-color: #6864dd;
+}
+.navbar-brand {
+  color: #000;
+  font-size: 22px;
+}
+.navbar-brand:hover {
+  color: #fff;
+}
+.nav-link {
+  color: #fff;
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler.navbar-toggler {
+  border-color: #fff;
+}
+h1 {
+  text-transform: capitalize;
+}
+.modal-img {
+  width: 150px;
+  height: 150px;
+  justify-self: center;
+}
+p {
+  text-transform: capitalize;
+}
+.content-container {
+  background-color: rgba(253, 121, 13, 0.5);
+  margin: 0 170px;
+  display: block;
+}
+.pokemon-list {
+  text-align: center;
+  text-decoration: none;
+  padding: 40px;
+  list-style: none;
+}
+li {
+  padding: 15px 0;
+}
+.btn {
+  border: 2px solid #000;
+  height: 50px;
+  width: 150px;
+  font-size: 18px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  border-color: #fff;
+  background-color: #6864dd;
+  color: #fff;
+  height: 60px;
+  width: 160px;
+}
+.sourcing {
+  opacity: 30%;
+  font-size: 12px;
+}
+a {
+  display: block;
+  color: #000;
+}
+a:hover {
+  color: #000;
+}
+@media all and (min-width: 200px) and (max-width: 275px) {
+  .btn:hover {
+    height: 50px;
+    width: 100px;
+  }
+}
+@media all and (max-width: 575px) {
+  body {
+    font-size: 18px;
+  }
+  header {
+    font-size: 36px;
+    margin: 60px 0 30px 0;
+  }
+  .content-container {
+    margin: 0 50px;
+  }
+  .btn {
+    width: 120px;
+  }
+}
