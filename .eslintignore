@@ -1,0 +1,2 @@
+# this is to ignore the scripts.min.js file, as minifier changed many errors back
+dist/script.min.js
