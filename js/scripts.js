@@ -84,7 +84,7 @@ let pokemonRepository = (function () {
         // content inside modal window
         let modalName = $('<h1>' + item.name + '</h1>');
         let modalIdNumber = $('<p>Identification Number: ' + item.identificationNumber + '</p>');
-        let modalHeight = $('<p>Height: ' + item.height + '`</p>');
+        let modalHeight = $('<p>Height: ' + item.height + '&apos;</p>');
         let modalTypes = $('<p>Types: ' + item.types + '</p>');
 
         //modal images
