@@ -16,4 +16,4 @@ As a user, I should be able to be able to access the original API source if I wa
 ```
 Given the user has loaded the app
 When the user clicks on the Pokdex link in the header
-Then the user will be redirected to [Pokedex.com] (https://www.pokemon.com/us/pokedex/)
+Then the user will be redirected to [Pokedex.com](https://www.pokemon.com/us/pokedex/)
